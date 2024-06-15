@@ -1,0 +1,30 @@
+mkdir MoneyExtension
+cd .\MoneyExtension\
+dotnet new classlib -o MoneyExtension
+dotnet new mstest -o MoneyExtension
+dotnet new mstest -o MoneyExtension.Tests
+dotnet new sln 										=> Solution
+dotnet sln add .\MoneyExtension\
+dotnet sln add .\MoneyExtension.Tests\
+cd .\MoneyExtension.Tests\
+dotnet add reference ..\MoneyExtension\
+
+
+dotnet build
+
+
+--------------------------------------------------------------------------------------------
+2. Escrevendo o código do pacote
+--------------------------------------------------------------------------------------------
+
+    1. Class1.cs: 
+        Renomeado a classe para 'MoneyExtension.cs'
+
+    2. MoneyExtension.cs:
+        Incluido o código de conversão de moeda
+
+    3.UnitTest1.cs:
+        Renomeado a classe para MoneyExtensionTests.cs
+
+    2. MoneyExtensionTests.cs:
+        Incluido o código de test
