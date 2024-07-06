@@ -28,3 +28,10 @@ dotnet build
 
     2. MoneyExtensionTests.cs:
         Incluido o código de test
+
+
+--------------------------------------------------------------------------------------------
+3.  Iniciando o Workflow
+--------------------------------------------------------------------------------------------
+
+    1. Criado a pasta .github/Workflow/main.yml

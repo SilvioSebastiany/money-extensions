@@ -1,0 +1,33 @@
+name: Build and deploy package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  buld-and-deploy:
+    runs-on: ubuntu-latest                      # instala o terminal ubunto
+
+    steps:
+  - uses: actions/checkout@main
+
+  - name: Set up .NET Core                      # instala do dotnet
+    uses: actions/setup-dotnet@v2
+    with:
+      dotnet-version: '7.0.x'
+
+  - name: build with dotnet                     # constroi a aplicação
+    run: dotnet build --configuration Release
+
+  - name: Test                                  # faz um teste na aplicação
+    run: dotnet test
+
+  - name: Create the Package                    #Cria e faz um pacote da aplicação
+    run: dotnet pack --configuration  Release
+
+  - name: Puplish                               #secrets.NUGET_SILVIO: a chave está salva no github
+    run: dotnet nuget push "MoneyExtension/bin/Release/*.nupkg" -k ${{ secrets.NUGET_SILVIO }} -s https://api.nuget.org/v3/index.json
+
+
+   
