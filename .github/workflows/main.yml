@@ -26,8 +26,9 @@ jobs:
       - name: Create the Package                    #Cria e faz um pacote da aplicação
         run: dotnet pack --configuration  Release
 
-      - name: Puplish                               #secrets.NUGET_TOKEN_SILVIO: a chave está salva no github
-        run: dotnet nuget push "MoneyExtension/bin/Release/*.nupkg" -k ${{ secrets.NUGET_TOKEN_SILVIO }} -s https://api.nuget.org/v3/index.json
-
+       - name: Publish
+          env:
+            NUGET_API_KEY: ${{ secrets.NUGET_TOKEN_SILVIO }}   #secrets.NUGET_TOKEN_SILVIO: a chave está salva no github
+          run: dotnet nuget push "MoneyExtension/bin/Release/*.nupkg" -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
 
    
