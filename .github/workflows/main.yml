@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  buld-and-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest                      # instala o terminal ubunto
 
     steps:
