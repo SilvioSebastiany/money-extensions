@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
 
-    <PackageId>MoneyExtensions</PackageId>
+    <PackageId>MoneyExtensions_Silvio</PackageId>
     <Version>1.0.0</Version>
     <License>MIT</License>
     <Authors>Silvio Sebastiany</Authors>
